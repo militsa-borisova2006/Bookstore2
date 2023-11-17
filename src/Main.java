@@ -46,7 +46,6 @@ public class Main {
         for(int i=0; i<numberOfBooks; i+=2){
             store.sell(store.getBooks().get(i));
         }
-
         for(int i =0; i<numberOfBooks; i++){
             store.getBooks().get(i).toString();
             System.out.println();
