@@ -2,16 +2,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 public class Main {
-    /*Когато сте въвели информация за всички книги и имате в BookStore
-     попълнен списък с книги и техните наличности, от main metod-а извиквате
-      метода sell() на всяка втора книга (през една) и ако има налична от
-      нея я продавате, а ако няма налична показвате на стандартния изход,
-      че нямате наличност от съответната книга.
-Ето и помощната диаграма от час за проекта:
 
-*/
     public static void main(String[] args) {
         Bookstore store = new Bookstore();
+        ArrayList<Book> books = (ArrayList<Book>) store.getBooks();
         Scanner sc = new Scanner(System.in);
         int numberOfBooks = sc.nextInt();
 
@@ -39,9 +33,11 @@ public class Main {
             book.setAuthor(author);
             book.setAvailable(sc.nextInt());
             book.setPrice(sc.nextDouble());
-            store.add(book);
+            books.add(book);
+
             sc.close();
         }
+        store.setBooks(books);
 
         for(int i=0; i<numberOfBooks; i+=2){
             store.sell(store.getBooks().get(i));
